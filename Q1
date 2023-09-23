@@ -1,14 +1,9 @@
-Given two strings, one is a subsequence of all the elements of the first string that occurs in the same order within the second string.
-
+Q1 : Given two strings, one is a subsequence of all the elements of the first string that occurs in the same order within the second string.
 They don't have to be contiguous in the second string but the order must be maintained. For example, given the string "I like cheese" the word ("I" and "cheese") are one possible subsequence of that string. Words are space delimited.
-
 Given two strings S and T where t is a subsequence of S, report the words of s, missing in T(case Sensitive), in the order, they are missing.
-
 Input
 The first line of each test case contains a string S that may be in form of many words separated by spaces
-
 The second of each test case contains a string T that is a subsequence of string S that also may be in form of many words separated by spaces.
-
 Output
 For each test case print the list of words that are missing in the same order. If string A completely match with string B return 0
 
@@ -18,3 +13,46 @@ I am using JobOverflow to improve programming
 am JobOverflow
 output
 I using to improve programming
+
+Solution :
+Java
+import java.util.*;
+public class Main {
+  public static List<String> print(String S, String T){
+    List<String> missingWords = new ArrayList<>();
+    if(S.equals(T)){
+      return missingWords;
+    }
+    String[] parts1 = S.split(" ");
+    String[] parts2 = T.split(" ");
+    int l1 = parts1.length;
+    int l2 = parts2.length;
+    int i=0, j=0;
+    while(i<l1 && j<l2){
+      if(!parts1[i].equals(parts2[j])){
+        missingWords.add(parts1[i]);
+      }
+      else{
+        j++;
+      }
+      i++;
+    }
+    while(i<l1){
+      missingWords.add(parts1[i]);
+      i++;
+    }
+    return missingWords;
+  }
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      String S = sc.nextLine();
+      String T = sc.nextLine();
+      List<String> output = print(S, T);
+      for(int i=0;i<output.size();i++)
+        System.out.print(output.get(i)+" ");
+      if(output.size() == 0){
+        System.out.print(0);
+      }
+    }
+  }
+
