@@ -1,0 +1,20 @@
+Given two strings, one is a subsequence of all the elements of the first string that occurs in the same order within the second string.
+
+They don't have to be contiguous in the second string but the order must be maintained. For example, given the string "I like cheese" the word ("I" and "cheese") are one possible subsequence of that string. Words are space delimited.
+
+Given two strings S and T where t is a subsequence of S, report the words of s, missing in T(case Sensitive), in the order, they are missing.
+
+Input
+The first line of each test case contains a string S that may be in form of many words separated by spaces
+
+The second of each test case contains a string T that is a subsequence of string S that also may be in form of many words separated by spaces.
+
+Output
+For each test case print the list of words that are missing in the same order. If string A completely match with string B return 0
+
+Example
+input
+I am using JobOverflow to improve programming
+am JobOverflow
+output
+I using to improve programming
